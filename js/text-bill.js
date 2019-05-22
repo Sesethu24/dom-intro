@@ -11,14 +11,18 @@
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen
 
-var billStringElement = document.querySelector(".billString");
-  var textBillAddBtnElement = document.querySelector(".textBillAddBtn");
-var callsTotal = 0;
-var smsTotal = 0;
+var billTypeText = document.querySelector(".billTypeText");
+var textTotalAddBtn = document.querySelector(".addToBillBtn");
+var callsTotalElem = document.querySelector(".callTotalOne");
+var smsTotalElem = document.querySelector(".smsTotalOne");
+var totalCostElem = document.querySelector(".totalOne")
+
+
 function textBillTotal(){
+    
     var billTypeEntered = billTypeText.value.trim();
    
-    if (billTypeEntered === "bill"){
+    if (billTypeEntered === "call"){
         callsTotal += 2.75
     }
     else if (billTypeEntered === "sms"){
@@ -29,7 +33,7 @@ function textBillTotal(){
     callsTotalElem.innerHTML = callsTotal.toFixed(2);
     smsTotalElem.innerHTML = smsTotal.toFixed(2);
     var totalCost = callsTotal + smsTotal;
-    
+    totalCostElem.innerHTML = totalCost.toFixed(2); 
     
     if (totalCost >= 50){
         
@@ -38,6 +42,9 @@ function textBillTotal(){
     else if (totalCost >= 30){
         totalCostElem.classList.add("warning");
     }
-    totalCostElem.innerHTML = totalCost.toFixed(2); 
+    
 }
-textBillAddBtnElement.addEventListener('click', textBillTotal);
+textTotalAddBtn.addEventListener('click', textBillTotal);
+
+var callsTotal = 0;
+    var smsTotal = 0;
