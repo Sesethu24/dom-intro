@@ -10,10 +10,47 @@
 // * add the appropriate value to the running total
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen
+var billItemTypeRadio= document.querySelector(".billItemTypeRadio");
+var checkedRadioBtn = document.querySelector(".radioBillAddBtn");
+var callsTotalTwoElem = document.querySelector(".callTotalTwo");
+var smsTotalTwoElem = document.querySelector(".smsTotalTwo");
+var totalCostTwoElem = document.querySelector(".totalTwo");
 
-// var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
-// if (checkedRadioBtn){
-//     var billItemType = checkedRadioBtn.value
+var callsTotal = 0;
+var smsTotal = 0;
+
+function radioBillTotal(){
+     
+    
+if (checkedRadioBtn){
+    var billItemTypeRadio = document.querySelector("input[name='billItemType']:checked");
+
+   
+}
+   
+   
+    if (billItemTypeRadio.value === "call"){
+        callsTotal += 2.75
+    }
+    else if (billItemTypeRadio.value === "sms"){
+        smsTotal += 0.75;
+    }
+    
   
-// }
-// calculateBtn.addEventListener('click', checkedRadioBtn);
+    callsTotalTwoElem.innerHTML = callsTotal.toFixed(2);
+    smsTotalTwoElem.innerHTML = smsTotal.toFixed(2);
+    var totalCost = callsTotal + smsTotal;
+    totalCostTwoElem.innerHTML = totalCost.toFixed(2); 
+
+    
+    if (totalCost >= 50){
+        
+        totalCostTwoElem.classList.add("danger");
+    }
+    else if (totalCost >= 30){
+        totalCostTwoElem.classList.add("warning");
+    }
+
+}
+ checkedRadioBtn.addEventListener('click', radioBillTotal);
+

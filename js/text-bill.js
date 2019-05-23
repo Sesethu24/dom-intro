@@ -11,40 +11,45 @@
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen
 
-var billTypeText = document.querySelector(".billTypeText");
+var billTypeTextElem = document.querySelector(".billTypeTexts");
 var textTotalAddBtn = document.querySelector(".addToBillBtn");
 var callsTotalElem = document.querySelector(".callTotalOne");
 var smsTotalElem = document.querySelector(".smsTotalOne");
 var totalCostElem = document.querySelector(".totalOne")
 
+var callsTotalOne = 0;
+var smsTotalOne = 0;
+
 
 function textBillTotal(){
     
-    var billTypeEntered = billTypeText.value.trim();
+    var billTypeEntered = billTypeTextElem.value;
+
+    console.log(billTypeEntered)
    
     if (billTypeEntered === "call"){
-        callsTotal += 2.75
+        callsTotalOne += 2.75
     }
     else if (billTypeEntered === "sms"){
-        smsTotal += 0.75;
+        smsTotalOne += 0.75;
     }
     
   
-    callsTotalElem.innerHTML = callsTotal.toFixed(2);
-    smsTotalElem.innerHTML = smsTotal.toFixed(2);
-    var totalCost = callsTotal + smsTotal;
-    totalCostElem.innerHTML = totalCost.toFixed(2); 
+    callsTotalElem.innerHTML = callsTotalOne.toFixed(2);
+    smsTotalElem.innerHTML = smsTotalOne.toFixed(2);
+    var totalCostOne = callsTotalOne + smsTotalOne;
+    totalCostElem.innerHTML = totalCostOne.toFixed(2); 
     
-    if (totalCost >= 50){
+    if (totalCostOne >= 50){
         
         totalCostElem.classList.add("danger");
+        
     }
-    else if (totalCost >= 30){
+    else if (totalCostOne >= 30){
         totalCostElem.classList.add("warning");
     }
     
 }
 textTotalAddBtn.addEventListener('click', textBillTotal);
 
-var callsTotal = 0;
-    var smsTotal = 0;
+
