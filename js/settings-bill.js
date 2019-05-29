@@ -39,6 +39,18 @@ var criticalLevelSettingElem = document.querySelector(".criticalLevelSetting");
 var callsTotalSet = 0;
 var smsTotalSet = 0;
 
+// var callCostSettingElemement = 0;
+// var smsCostSettingElement = 0;
+// var warningLevelSettingElement = 0;
+// var criticalLevelSettingElement = 0;
+ 
+
+// function updateSettingTotal(){
+// var warningLevelSettingElement = warningLevelSetting.value;
+// var criticalLevelSettingElement = criticalLevelSetting.value;
+
+
+//}
 
 function radioBillTotal(){
      
@@ -77,10 +89,6 @@ if (checkedRadioBtnElem){
 }
  checkedRadioBtnElem.addEventListener('click', radioBillTotal);
 
-// function updateSettingTotal(){
-     
-    
-// }
-// updateSettingBtn.addEventListener('click', updateSettingTotal);
+ // updateSettingBtn.addEventListener('click', updateSettingTotal);
     
     
