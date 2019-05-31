@@ -1,94 +1,50 @@
-// get a reference to the sms or call radio buttons
 
-// get refences to all the settings fields
-
-//get a reference to the add button
-
-//get a reference to the 'Update settings' button
-
-// create a variables that will keep track of all the settings
-
-// create a variables that will keep track of all three totals.
-
-//add an event listener for when the 'Update settings' button is pressed
-
-//add an event listener for when the add button is pressed
-
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the call / sms total
-// * add the appropriate value to the overall total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
-var callTotalSettings = document.querySelector(".callTotalSettings");
-var smsTotalSettings = document.querySelector(".smsTotalSettings");
-var checkedRadioBtnElem = document.querySelector(".settingsAddBtn");
-var totalSettings = document.querySelector(".totalSettings");
-var billItemTypeWithSettings = document.querySelector(".billItemTypeWithSettings");
-var settingTotalAddBtn = document.querySelector(".settingBillAddBtn");
-var updateSettingBtn = document.querySelector(".updateSettings");
-var billItemTypeRadio= document.querySelector(".billItemTypeRadio");
-
-var billItemTypeWithSettingsElem = document.querySelectorAll(".billItemTypeWithSettings");
-
-var callCostSettingElem = document.querySelector(".callCostSetting");
-var smsCostSettingElem = document.querySelector(".smsCostSetting");
-var warningLevelSettingElem = document.querySelector(".warningLevelSetting");
-var criticalLevelSettingElem = document.querySelector(".criticalLevelSetting");
-
-var callsTotalSet = 0;
-var smsTotalSet = 0;
-
-// var callCostSettingElemement = 0;
-// var smsCostSettingElement = 0;
-// var warningLevelSettingElement = 0;
-// var criticalLevelSettingElement = 0;
- 
-
-// function updateSettingTotal(){
-// var warningLevelSettingElement = warningLevelSetting.value;
-// var criticalLevelSettingElement = criticalLevelSetting.value;
+var radioButton = document.querySelector(".billItemTypeWithSettings");
+var settingsButton = document.querySelector(".settingsAddBtn");
+var costCalls = document.querySelector(".callTotalSettings");
+var costSms = document.querySelector(".smsTotalSettings");
+var costSettings = document.querySelector(".totalSettings");
 
 
-//}
 
-function radioBillTotal(){
+var Calls = 0;
+var Sms = 0;
+
+function AddFunction(){
      
+    settingsButton = document.querySelector("input[name='radioButton']:checked");
+    if (settingsButton){
+         radioButton = settingsButton.value
     
-if (checkedRadioBtnElem){
+    }
    
-    var billItemTypeRadio = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-
-
-    if (billItemTypeRadio.value === "call"){
-        var callCostSettingVal = Number(callCostSettingElem.value);
-        callsTotalSet += callCostSettingVal;
+    if (radioButton === "call"){
+        Calls += 2.75
     }
-    else if (billItemTypeRadio.value === "sms"){
-        var smsCostSettingVal = Number(smsCostSettingElem.value);
-        smsTotalSet += smsCostSettingVal;
+    else if (radioButton === "sms"){
+        Sms += 0.75;
     }
-      
+    
   
-    callTotalSettings.innerHTML = callsTotalSet.toFixed(2);
-    smsTotalSettings.innerHTML = smsTotalSet.toFixed(2);
-    var totalSettingCost = callsTotalSet + smsTotalSet;
-    totalSettings.innerHTML = totalSettingCost.toFixed(2); 
+    costCalls.innerHTML = Calls.toFixed(2);
+    costSms.innerHTML = Sms.toFixed(2);
+    var totalCost = Calls + Sms;
+    costSettings.innerHTML = totalCost.toFixed(2); 
 
     
-    if (totalSettingCost >= 50){
+    //if (totalCost >= 50){
         
-        totalSettings.classList.add("danger");
-    }
-    else if (totalSettingCost >= 30){
-        totalSettings.classList.add("warning");
-    }
+      //  totalCostTwoElem.classList.add("danger");
+   // }
+   // else if (totalCost >= 30){
+       // totalCostTwoElem.classList.add("warning");
+   // }
 
 }
-
-}
- checkedRadioBtnElem.addEventListener('click', radioBillTotal);
-
- // updateSettingBtn.addEventListener('click', updateSettingTotal);
+ settingsButton.addEventListener('click', AddFunction);
     
+ function UpdateButton()
+ {
+
+ }
     
