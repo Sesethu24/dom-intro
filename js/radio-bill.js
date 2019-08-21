@@ -24,8 +24,6 @@ function radioBillTotal(){
     
 if (checkedRadioBtn){
     var billItemTypeRadio = document.querySelector("input[name='billItemType']:checked");
-
-   
 }
    
    

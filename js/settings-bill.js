@@ -64,14 +64,7 @@ function AddFunction(){
     criticalLev = Number(criticalLevel.value);
 
 
-     
-
-    // if (totalCost < criticalLev){
-    //     settingsButton.disabled = false;
-    // }
-    // if (totalCost >= criticalLev){
-    //     settingsButton.disabled = true;
-    // }
+    
     if (totalCost >= criticalLev){
         
         costSettings.classList.add("danger");
