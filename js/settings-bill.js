@@ -61,9 +61,7 @@ function AddFunction(){
     callElement = Number(callsElement.value);
     SmssElement = Number(smsElement.value);
     warningLev = Number(warningLevel.value);
-    criticalLev = Number(criticalLevel.value);
-
-
+    criticalLev = Number(criticalLevel.value)
     
     if (totalCost >= criticalLev){
         
